@@ -1,0 +1,60 @@
+<!doctype html>
+
+<head>
+  <title>Listen Local</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<section class="container">
+  <header>
+    <h1>Listen Local</h1>
+  </header>
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+  {% block content %}{% endblock %}
+
+  <form method="POST" action="{{ url_for('spotify_auth') }}">
+        <input type="submit" value='Spotify Login' name='auth'>
+  </form>
+
+  {% if user %}
+    <section class="user container">
+      <h3>Spotify Account Connected</h1>
+      <h4>User</h3>
+      <p>{{ user["display_name"] }}</p>
+      {% if user["images"] %}
+        <img
+          src="{{ user["images"][0]["url"] }}"
+          alt="{user["display_name"]} avatar"
+          height="42"
+          width="42"
+        >
+  {% endif %}
+
+    </section>
+
+    <br>
+
+    <form method='POST' action={{ url_for('playlist_create') }}>
+      <label for="city">City</label>
+      <input type="text" name="city" required>
+      <br>
+      <label for="state">State</label>
+      <input type="text" name="state" required>
+      <br>
+      <label for="start_date">Start Date</label>
+      <input type="date" name="start_date">
+      <br>
+      <label for="end_date">End Date</label>
+      <input type="date" name="end_date">
+      <br>
+      <input type="submit" value='Create Playlist' name='playlist_create'>
+    </form>
+  {% endif %}
+
+</section>
