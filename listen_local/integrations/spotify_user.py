@@ -1,7 +1,7 @@
 import json
 import requests
 
-from listen_local.models import spotify_oauth
+from listen_local.integrations import spotify_oauth
 
 ME_URL = 'https://api.spotify.com/v1/me'
 
