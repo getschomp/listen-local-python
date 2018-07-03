@@ -2,7 +2,7 @@ import mock
 
 import requests
 
-import listen_local.models.spotify_user as module
+import listen_local.integrations.spotify_user as module
 
 @mock.patch.object(requests, 'get')
 def test_get_current_user(mock_request):

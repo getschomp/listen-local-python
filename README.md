@@ -1,6 +1,6 @@
 With pip and python3
 
-Install dependancies
+Install dependencies
 
 ```
 source venv/bin/activate
