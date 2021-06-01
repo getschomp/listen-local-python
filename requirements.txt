@@ -13,5 +13,5 @@ itsdangerous==0.24        # via flask
 jinja2==2.10              # via flask
 markupsafe==1.0           # via jinja2
 requests==2.19.1
-urllib3==1.23             # via requests
+urllib3==1.26.5             # via requests
 werkzeug==0.14.1          # via flask
